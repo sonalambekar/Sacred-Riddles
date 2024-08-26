@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #1f1f2e;
+}
+.box1{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 1);
+    height: 250px;
+    margin: 20px;
+    background-image: url(Croods\ -\ Standing.png);
+    background-repeat: no-repeat;
+    animation: fadeInUp 1s forwards ease-in-out;
+}
+.box2{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 1);
+    height: 500px;
+    margin: 20px;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s forwards ease-in-out;
+}
+h1{
+    background-color: transparent;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    margin-top: 80px;
+    font-size: 80px;
+    margin-left: 40px;
+}
+.glass-navbar {
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.glass-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background-color: transparent;
+}
+
+.glass-navbar ul li {
+    margin: 0;
+    background-color: transparent;
+}
+
+.glass-navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+}
+.leaderboard-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    height: 400px;
+    margin: 20px;
+    margin-bottom: 120px;
+    margin-top: 80px;
+    color: white;
+    padding: 8px;
+}
+
+.leaderboard {
+    height: 95%;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* For Firefox */
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.leaderboard::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+}
+
+.leaderboard::-webkit-scrollbar-track {
+    background: transparent; /* Track of the scrollbar */
+}
+
+.leaderboard::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Roundness of the thumb */
+}
+
+.leaderboard h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.leaderboard-item .name {
+    font-weight: bold;
+}
+
+.leaderboard-item .points {
+    color: #ffdf00;
+}
+
+h3,h4{
+    background: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
+h3{
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: 'Orbitron', sans-serif;
+
+
+}
+h4{
+    margin-top: 20px;
+    font-weight: lighter;
+}
+.champs{
+    background-color: transparent;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

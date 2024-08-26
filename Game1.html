@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        background-color: #1f1f2e;
+    }
+    .game-header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.level-indicator {
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.points-display {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 10px;
+    background-color: transparent;
+}
+
+.points-display img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    background-color: transparent;
+}
+
+.points-display strong {
+    font-weight: bold;
+    color: #f39c12; /* Gold color for the points */
+}
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.game {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px;
+  grid-template-rows: 80px 80px 80px 80px;
+  border: 1px solid #550000;
+}
+
+.grid button {
+  background-color: #cfcfcf;
+  color: #003333;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #550000;
+  outline: none;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer button {
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  width: 80px;
+  background-color: white;
+  color: #003333;
+  outline: none;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  color: yellow;
+  background-color: orange;
+}
+
+.footer span {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin: auto 0;
+}
+
+.message {
+  color:#AA3939;
+  height: 80px;
+}
+h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+</style>
+<body>
+    <div class="game-header">
+        <div class="points-display">
+            <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+            <span>Points: <strong>50</strong></span>
+        </div>
+    </div>
+    <div class="game">
+        <div class="grid">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>10</button>
+          <button>11</button>
+          <button>12</button>
+          <button>13</button>
+          <button>14</button>
+          <button>15</button>
+          <button></button>
+        </div>
+  
+        <div class="footer">
+          <button>Play</button>
+          <span id="move">Move: 100</span>
+          <span id="time">Time: 100</span>
+        </div>
+      </div>
+      <h1 class="message">You win!</h1>
+     <h3>🧩 Objective: Rearrange the numbers to make every row, column, and diagonal sum to 34, creating Ramanujan’s magic square.
+
+        <br>🔄 How to Play: Click on a tile next to the empty space to move it and rearrange the grid.
+        
+        <br>✨ Hint: Think about how each move impacts the row, column, and diagonal sums. Explore Ramanujan's riddles for more mathematical inspiration!</h3>
+</body>
+<script>
+    class Box {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  getTopBox() {
+    if (this.y === 0) return null;
+    return new Box(this.x, this.y - 1);
+  }
+
+  getRightBox() {
+    if (this.x === 3) return null;
+    return new Box(this.x + 1, this.y);
+  }
+
+  getBottomBox() {
+    if (this.y === 3) return null;
+    return new Box(this.x, this.y + 1);
+  }
+
+  getLeftBox() {
+    if (this.x === 0) return null;
+    return new Box(this.x - 1, this.y);
+  }
+
+  getNextdoorBoxes() {
+    return [
+      this.getTopBox(),
+      this.getRightBox(),
+      this.getBottomBox(),
+      this.getLeftBox()
+    ].filter(box => box !== null);
+  }
+
+  getRandomNextdoorBox() {
+    const nextdoorBoxes = this.getNextdoorBoxes();
+    return nextdoorBoxes[Math.floor(Math.random() * nextdoorBoxes.length)];
+  }
+}
+
+const swapBoxes = (grid, box1, box2) => {
+  const temp = grid[box1.y][box1.x];
+  grid[box1.y][box1.x] = grid[box2.y][box2.x];
+  grid[box2.y][box2.x] = temp;
+};
+
+const isMagicSquare = grid => {
+  const magicSum = 34;
+
+  // Check rows, columns, and diagonals
+  for (let i = 0; i < 4; i++) {
+    if (
+      grid[i].reduce((sum, val) => sum + val, 0) !== magicSum || // Rows
+      grid.reduce((sum, row) => sum + row[i], 0) !== magicSum // Columns
+    ) {
+      return false;
+    }
+  }
+
+  // Check diagonals
+  const diagonal1 = grid[0][0] + grid[1][1] + grid[2][2] + grid[3][3];
+  const diagonal2 = grid[0][3] + grid[1][2] + grid[2][1] + grid[3][0];
+
+  return diagonal1 === magicSum && diagonal2 === magicSum;
+};
+
+const getRandomGrid = () => {
+  let grid = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+  // Shuffle the grid to create a random state
+  for (let i = grid.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [grid[i], grid[j]] = [grid[j], grid[i]];
+  }
+
+  grid = [grid.slice(0, 4), grid.slice(4, 8), grid.slice(8, 12), grid.slice(12, 16)];
+
+  if (isMagicSquare(grid)) return getRandomGrid(); // Ensure it's not already solved
+  return grid;
+};
+
+class State {
+  constructor(grid, move, time, status) {
+    this.grid = grid;
+    this.move = move;
+    this.time = time;
+    this.status = status;
+  }
+
+  static ready() {
+    return new State(
+      [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
+      0,
+      0,
+      "ready"
+    );
+  }
+
+  static start() {
+    return new State(getRandomGrid(), 0, 0, "playing");
+  }
+}
+
+class Game {
+  constructor(state) {
+    this.state = state;
+    this.tickId = null;
+    this.tick = this.tick.bind(this);
+    this.render();
+    this.handleClickBox = this.handleClickBox.bind(this);
+  }
+
+  static ready() {
+    return new Game(State.ready());
+  }
+
+  tick() {
+    this.setState({ time: this.state.time + 1 });
+  }
+
+  setState(newState) {
+    this.state = { ...this.state, ...newState };
+    this.render();
+  }
+
+  handleClickBox(box) {
+    return function() {
+      const nextdoorBoxes = box.getNextdoorBoxes();
+      const blankBox = nextdoorBoxes.find(
+        nextdoorBox => this.state.grid[nextdoorBox.y][nextdoorBox.x] === 0
+      );
+      if (blankBox) {
+        const newGrid = [...this.state.grid];
+        swapBoxes(newGrid, box, blankBox);
+        if (isMagicSquare(newGrid)) {
+          clearInterval(this.tickId);
+          this.setState({
+            status: "won",
+            grid: newGrid,
+            move: this.state.move + 1
+          });
+        } else {
+          this.setState({
+            grid: newGrid,
+            move: this.state.move + 1
+          });
+        }
+      }
+    }.bind(this);
+  }
+
+  render() {
+    const { grid, move, time, status } = this.state;
+
+    // Render grid
+    const newGrid = document.createElement("div");
+    newGrid.className = "grid";
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        const button = document.createElement("button");
+
+        if (status === "playing") {
+          button.addEventListener("click", this.handleClickBox(new Box(j, i)));
+        }
+
+        button.textContent = grid[i][j] === 0 ? "" : grid[i][j].toString();
+        newGrid.appendChild(button);
+      }
+    }
+    document.querySelector(".grid").replaceWith(newGrid);
+
+    // Render button
+    const newButton = document.createElement("button");
+    if (status === "ready") newButton.textContent = "Play";
+    if (status === "playing") newButton.textContent = "Reset";
+    if (status === "won") newButton.textContent = "Play";
+    newButton.addEventListener("click", () => {
+      clearInterval(this.tickId);
+      this.tickId = setInterval(this.tick, 1000);
+      this.setState(State.start());
+    });
+    document.querySelector(".footer button").replaceWith(newButton);
+
+    // Render move
+    document.getElementById("move").textContent = `Move: ${move}`;
+
+    // Render time
+    document.getElementById("time").textContent = `Time: ${time}`;
+
+    // Render message
+    if (status === "won") {
+      document.querySelector(".message").textContent = "You created the magic square!";
+    } else {
+      document.querySelector(".message").textContent = "";
+    }
+  }
+}
+
+const GAME = Game.ready();
+
+</script>
+</html>

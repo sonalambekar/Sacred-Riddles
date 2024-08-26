@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #1f1f2e;
+}
+.box1{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 1);
+    height: 250px;
+    margin: 20px;
+    background-image: url(Croods\ -\ Standing.png);
+    background-repeat: no-repeat;
+}
+.box2{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 1);
+    height: 500px;
+    margin: 20px;
+    margin-bottom: 50px;
+}
+h1{
+    background-color: transparent;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    margin-top: 20px;
+    font-size: 40px;
+    margin-left: 40px;
+}
+.glass-navbar {
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.glass-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background-color: transparent;
+}
+
+.glass-navbar ul li {
+    margin: 0;
+    background-color: transparent;
+}
+
+.glass-navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+}
+.box3{
+    background-image: url('silver-cup.png'), url('gold-cup.png'), url('bronze-cup.png');
+    height: 200px;
+    background-size: 10% 50%, 10% 60%, 10% 50%;
+    background-position: 30% 30%, 50% 25%, 70% 30%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: flex;
+
+}
+.name1{
+    background-color: transparent;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 150px;
+    font-size: 10px;
+    margin-left: 350px;
+    background-position: 50% 25%;
+}
+.name2{
+    background-color: transparent;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 150px;
+    font-size: 10px;
+    margin-left: 170px;
+    background-position: 30% 30%;
+}
+.name3{
+    background-color: transparent;
+    background-image: none;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 10px;
+    background-position: 70% 30%;
+    margin-left: 160px;
+    
+}
+.leaderboard-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(2px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    height: 400px;
+    margin: 20px;
+    margin-bottom: 120px;
+    margin-top: 80px;
+    color: white;
+    padding: 8px;
+}
+
+.leaderboard {
+    height: 95%;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* For Firefox */
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.leaderboard::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+}
+
+.leaderboard::-webkit-scrollbar-track {
+    background: transparent; /* Track of the scrollbar */
+}
+
+.leaderboard::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Roundness of the thumb */
+}
+
+.leaderboard h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.leaderboard-item .name {
+    font-weight: bold;
+}
+
+.leaderboard-item .points {
+    color: #ffdf00;
+}
+

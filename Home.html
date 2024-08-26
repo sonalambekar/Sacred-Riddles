@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="background">
+        <div class="box1"><h1>Welcome</h1></div>
+
+        <div class="box2">
+            <nav class="glass-navbar">
+                <ul>
+                    <li><a href="#" id="openGame">Game</a></li>
+                    <li><a href="#" id="openBoard">Leaderboard</a></li>
+                    <li><a href="#">Guide</a></li>
+                    <li><a href="#">Know Us</a></li>
+                </ul>
+
+            </nav>
+        <div class="champs">
+            <h3>Heyy Champs!!</h3>
+            <h4>Get ready to embark on an epic journey where ancient wisdom meets modern science. 
+                You're about to dive into a world where every step you take unlocks the secrets of Indian Hindu traditions and challenges your STEM skills. 
+                Are you ready to solve riddles, earn points, and explore the rich cultural heritage that has shaped the world?
+
+                Let the adventure begin!</h4>
+        </div>
+
+            
+    </div>
+</body>
+<script>
+    document.getElementById("openGame").addEventListener("click", function() {
+    window.location.href = "Game.html";
+});
+
+document.getElementById("openBoard").addEventListener("click", function() {
+    window.location.href = "Board.html";
+});
+
+
+</script>
+</html>

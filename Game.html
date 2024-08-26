@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Level Path with Wavy Line</title>
+    <link rel="stylesheet" href="Game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="game-header">
+        <div class="points-display">
+            <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+            <span>Points: <strong>50</strong></span>
+        </div>
+    </div>
+
+    <div class="path-container">
+        <svg class="path-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 700">
+            <path d="M60 80 Q 120 150, 180 100 Q 240 50, 260 150 Q 240 250, 180 300 Q 120 350, 80 400 Q 40 450, 100 500 Q 160 550, 140 600" 
+                  stroke="white" stroke-width="4" fill="none"/>
+        </svg>
+
+        <div class="level 0ne" data-level="1" style="top: 10%; left: 10%;" id="openPageBtn1">1</div>
+        <div class="level two" data-level="2" style="top: 12%; left: 40%;">2</div>
+        <div class="level three" data-level="3" style="top: 15%; left: 75%;">3</div>
+        <div class="level Four" data-level="4" style="top: 25%; left: 72%;">4</div>
+        <div class="level Five" data-level="5" style="top: 35%; left: 60%;">5</div>
+        <div class="level Six" data-level="6" style="top: 45%; left: 35%;">6</div>
+        <div class="level Seven" data-level="7" style="top: 55%; left: 15%;">7</div>
+        <div class="level eight" data-level="8" style="top: 65%; left: 18%;">8</div>
+        <div class="level nine" data-level="9" style="top: 80%; left: 38%;">9</div>
+        <div class="level Ten" data-level="10" style="top: 95%; left: 10%;">10
+            <i class="fa-solid fa-crown fa-2xl" style="color: #FFD43B;"></i>
+        </div>
+    </div>
+
+    <script src="Game.js"></script>
+</body>
+</html>

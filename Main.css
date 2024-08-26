@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: #1f1f2e;
+    width: 100vw;
+    height: 100vh;
+  }
+  .animation{
+    position: absolute;
+    overflow: hidden; 
+    width: 500px;
+    height: 500px;
+    bottom: 0;
+  }
+  .moon{
+    position: absolute; 
+    top: 300px;
+    right: 100px;
+    animation-name: lunamove;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+  .astronaut{
+    position: absolute; 
+    top: 250px;
+    left: 100px;
+    transform: scaleX(-1);
+    animation-name: astromove;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+  @keyframes astromove{
+    from{
+      top: 200px;
+      width: 270px;
+    }
+    to{
+      top: 250px;
+      width: 250px;
+    }
+  }
+  @keyframes lunamove{
+    from{
+      top: 290px;
+    }
+    top{
+      top: 300px;
+    }
+  }
+.Name{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    font-size: 50px;
+    font-family: 'Orbitron', sans-serif;
+}
+/* From Uiverse.io by barisdogansutcu */ 
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+    color: white;
+    text-shadow: 2px 2px rgb(116, 116, 116);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: solid 2px black;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 17px;
+    background-color: hsl(49deg 98% 60%);
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  
+  button:active {
+    transform: scale(0.9);
+    transition: all 100ms ease;
+  }
+  
+  button svg {
+    transition: all 0.5s ease;
+    z-index: 2;
+  }
+  
+  .play {
+    transition: all 0.5s ease;
+    transition-delay: 300ms;
+  }
+  
+  button:hover svg {
+    transform: scale(3) translate(50%);
+  }
+  
+  .now {
+    position: absolute;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    z-index: 2;
+  }
+  
+  button:hover .now {
+    transform: translateX(10px);
+    transition-delay: 300ms;
+  }
+  
+  button:hover .play {
+    transform: translateX(200%);
+    transition-delay: 300ms;
+  }
